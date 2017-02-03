@@ -1,0 +1,14 @@
+driftfile <%= @drift_file %>
+
+statistics loopstats peerstats clockstats
+filegen loopstats file loopstats type day enable
+filegen peerstats file peerstats type day enable
+filegen clockstats file clockstats type day enable
+
+<% scope.lookupvar('ntp::array_servers').each do |ntp| %>server <%= ntp %>
+<% end %>
+restrict default kod nomodify notrap nopeer noquery
+restrict -6 default kod nomodify notrap nopeer noquery
+restrict 127.0.0.1 
+restrict -6 ::1
+
