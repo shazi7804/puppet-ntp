@@ -4,12 +4,13 @@ This module was designed for Pupper version 4.
 
 ### Setup
 ```
-class { 'ntp': }
+include '::ntp'
 ```
 
 ### Usage
+- change NTP servers
 ```
-class { 'ntp':
+class { '::ntp':
   server => [ 'tock.stdtime.gov.tw', 'watch.stdtime.gov.tw', 'time.stdtime.gov.tw'],
 }
 ```
